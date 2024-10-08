@@ -11,8 +11,7 @@ A Mini Flutter project for mapping and location services according to user's sea
 - [Installation](#installation)
 - [Usage](#usage)
 - [Environment Variables](#environment-variables)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Introduction
 
