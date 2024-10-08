@@ -24,6 +24,12 @@ Mapiano App is a Flutter application that provides mapping and location services
 - Search for locations
 - Display markers on the map
 
+## Screenshots
+## Screenshots
+
+
+<img src="apk/locationScreen.jpeg" width="200"> <img src="apk/mapScreen.jpeg" width="200"> 
+
 ## Getting Started
 
 This project is a starting point for a Flutter application. Follow the instructions below to set up and run the project.
