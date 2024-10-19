@@ -2,6 +2,9 @@
 
 A Mini Flutter project for mapping and location services according to user's search.
 
+## App Link:
+### [Apk Link here](https://github.com/Mr-CodeBin/mapiano_app/blob/main/apk/app-release.apk)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
