@@ -40,13 +40,13 @@ dev_dependencies:
   flutter_lints: ^3.0.0
 
 
-assets:
-  - .env
+ 
 
 
 flutter:
 
-  
+  assets:
+    - .env
   
   
   uses-material-design: true

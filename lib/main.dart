@@ -1,9 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mapiano_app/screens/home_page.dart';
-import 'package:mapiano_app/screens/map_page.dart';
+import 'package:mapiano_app/routes.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,11 +13,10 @@ Future<void> main() async {
       systemNavigationBarColor: Colors.white,
     ),
   );
-  try {
-    await dotenv.load(fileName: '.env');
-  } catch (e) {
-    print('.env file not found');
-  }
+  await dotenv.load();
+  final String apiKey = dotenv.env['GOOGLE_MAPS_API_KEY']!;
+  log(apiKey);
+
   runApp(const MyApp());
 }
 
@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         primaryColor: Colors.white,
@@ -55,15 +54,13 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.roboto().fontFamily,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.blue),
+            backgroundColor: MaterialStateProperty.all(const Color(0xff7201A8)),
           ),
         ),
       ),
-      home: HomePage(),
-      routes: {
-        '/home': (context) => HomePage(),
-        '/mapScreen': (context) => MapPage(),
-      },
+      // home: const HomePage(),
+      initialRoute: '/home',
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

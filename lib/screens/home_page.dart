@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:mapiano_app/services/temp_service.dart';
 import 'package:mapiano_app/widgets/cust_text_field.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,10 +23,23 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  bool isCorrectValue(String value) {
+    if (value == null || value.isEmpty) {
+      return false;
+    }
+    if (value.length < 3) {}
+
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Enter Location')),
+      appBar: AppBar(
+        title: const Text(
+          'Enter Location',
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -37,13 +53,19 @@ class _HomePageState extends State<HomePage> {
                   if (value == null || value.isEmpty) {
                     return 'Please enter a location';
                   }
+                  if (value.length < 3) {
+                    return 'Please enter a valid location';
+                  }
                   return null;
                 },
               ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _submitLocation,
-                child: Text('Show on Map'),
+                child: Text(
+                  'Show on Map',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ],
           ),
